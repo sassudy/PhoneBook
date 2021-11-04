@@ -34,6 +34,31 @@ module.exports = class Contact{
             })
 
         }
+        static deleteItem(task){
+            fs.readFile(pathToFile, (error, fileContent) => {
+                let tasks = [];
+                if(!error){
+                    tasks = JSON.parse(fileContent);
+                }
+    
+    
+                for (let i = 0; i < tasks.length; i++) {
+                    if (tasks[i].userContact === task.userContact) {
+                        tasks.splice(i,1);
+                        break;
+                    }
+    
+    
+                    
+                }
+    
+                fs.writeFile(pathToFile, JSON.stringify(tasks), (error) => {
+                    console.log(error);
+                });
+    
+    
+            });
+        }
 };
 
 

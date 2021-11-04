@@ -20,3 +20,7 @@ exports.addContact = (request, response) => {
     response.redirect('/');
 
 };
+exports.deleteTask = (req, res) => {
+    Contact.deleteItem(req.body.checkbox);
+    res.redirect('/');
+    }

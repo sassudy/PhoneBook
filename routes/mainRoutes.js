@@ -5,5 +5,5 @@ const router = express.Router({ mergeParams: true });
 
 router.get('/', mainController.getMainPage);
 router.post('/addContact', mainController.addContact);
-
+router.post('/delete', mainController.deleteTask);
 module.exports = router;

@@ -5,20 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/581ba43944.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
     <h1>PHONE BOOK</h1>
-    <div>
-        <ol>
+    <div class="box">
+      
         <% for(let i = 0; i < contacts.length; i++) { %>
-            <li><%= contacts[i].contact.name %>: <%= contacts[i].contact.phone %></li>
-
+            <form action="/delete" method="POST">
+                <div class="item">
+            <input type="checkbox" value="<%= contacts[i].contact.name %>" name="checkbox" onchange="this.form.submit()" >
+            <p><%= contacts[i].contact.name %>: <%= contacts[i].contact.phone %></p>
+        </div>
+            </form>
             <% } %>
-        </ol>
-    </div>
+       
+  
 
     <form action="/addContact" method="POST">
         <input type="text" name="nimi" id="" placeholder="Lisa Nimi">
@@ -26,5 +30,6 @@
         <button type="submit"> Lisa kontakt</button>
 
     </form>
+</div>
 </body>
 </html>
